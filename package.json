@@ -4,13 +4,14 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
+    "lint": "eslint src/**/* -c .eslintrc.src.js && eslint test/**/* -c .eslintrc.test.js",
     "build": "babel src/index.js -o dist/index.js",
     "test": "mocha test --recursive --compilers js:babel-register",
     "semantic-release": "semantic-release pre && semantic-release post",
     "semantic-release-pub": "semantic-release pre && npm publish && semantic-release post",
     "check-coverage": "nyc check-coverage --lines 100 --functions 100 --branches 100",
     "commit": "git-cz",
-    "test:single": "nyc --extension .jsx --reporter=lcov --reporter=text-lcov npm test",
+    "test:single": "nyc --extension .jsx --reporter=lcov npm test",
     "report-coverage": "cat ./coverage/lcov.info | codecov"
   },
   "repository": {
@@ -32,6 +33,11 @@
     "codecov.io": "0.1.6",
     "commitizen": "2.8.1",
     "cz-conventional-changelog": "1.1.6",
+    "eslint": "2.10.2",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.8.0",
+    "eslint-plugin-jsx-a11y": "1.2.2",
+    "eslint-plugin-react": "5.1.1",
     "mocha": "2.5.3",
     "nyc": "6.4.4",
     "pre-git": "3.8.4",
@@ -44,12 +50,13 @@
     "pre-git": {
       "commit-msg": "conventional",
       "pre-commit": [
+        "npm run lint",
         "npm run test:single"
       ],
       "pre-push": [],
       "post-commit": [],
-      "post-checkout": [],
-      "post-merge": []
+      "post-checkout": ["npm install"],
+      "post-merge": ["npm install"]
     }
   }
 }
