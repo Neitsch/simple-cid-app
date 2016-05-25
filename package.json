@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "rm -rf dist && mkdir dist",
     "lint": "eslint src/**/* -c .eslintrc.src.js && eslint test/**/* -c .eslintrc.test.js",
-    "build": "babel src/index.js -o dist/index.js",
+    "build": "babel src/server/index.js -o dist/index.js",
     "test": "mocha test --recursive --compilers js:babel-register",
     "semantic-release": "semantic-release pre && semantic-release post",
     "semantic-release-pub": "semantic-release pre && npm publish && semantic-release post",
