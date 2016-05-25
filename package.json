@@ -1,6 +1,6 @@
 {
-  "name": "simple-cid-app",
-  "description": "",
+  "name": "test-package",
+  "description": "This is a simple package to test whether the CID process works.",
   "main": "index.js",
   "scripts": {
     "test:watch": "mocha src/index.spec.js",
