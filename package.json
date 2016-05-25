@@ -5,7 +5,8 @@
   "scripts": {
     "test:watch": "mocha src/index.spec.js",
     "test": "mocha src/index.spec.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && semantic-release post",
+    "semantic-release-pub": "semantic-release pre && npm publish && semantic-release post",
     "check-coverage": "nyc check-coverage --lines 100 --functions 100 --branches 100",
     "commit": "git-cz",
     "test:single": "nyc --reporter=lcov --reporter=text-lcov npm test",
