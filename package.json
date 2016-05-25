@@ -1,0 +1,33 @@
+{
+  "name": "simple-cid-app",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:watch": "mocha src/index.spec.js",
+    "test": "mocha src/index.spec.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Neitsch/simple-cid-app.git"
+  },
+  "author": "Nigel Schuster <nigel.schusters@googlemail.com> (http://www.nigel-schuster.de/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Neitsch/simple-cid-app/issues"
+  },
+  "homepage": "https://github.com/Neitsch/simple-cid-app#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "commitizen": "2.8.1",
+    "cz-conventional-changelog": "1.1.6",
+    "mocha": "2.5.3",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
