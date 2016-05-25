@@ -1,4 +1,4 @@
-import module from './index.js';
+import module from '../src/index.js';
 import chai from 'chai';
 
 describe('Export test', function() {
