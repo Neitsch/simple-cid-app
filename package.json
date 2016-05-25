@@ -6,7 +6,10 @@
     "test:watch": "mocha src/index.spec.js",
     "test": "mocha src/index.spec.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit": "git-cz"
+    "check-coverage": "nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "commit": "git-cz",
+    "test:single": "nyc --reporter=lcov --reporter=text-lcov npm test",
+    "report-coverage": "cat ./coverage/lcov.info | codecov"
   },
   "repository": {
     "type": "git",
@@ -20,14 +23,27 @@
   "homepage": "https://github.com/Neitsch/simple-cid-app#readme",
   "devDependencies": {
     "chai": "3.5.0",
+    "codecov.io": "0.1.6",
     "commitizen": "2.8.1",
     "cz-conventional-changelog": "1.1.6",
     "mocha": "2.5.3",
+    "nyc": "6.4.4",
+    "pre-git": "3.8.4",
     "semantic-release": "^4.3.5"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "pre-git": {
+      "commit-msg": "conventional",
+      "pre-commit": [
+        "npm run test:single"
+      ],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
     }
   }
 }
