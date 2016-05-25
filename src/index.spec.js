@@ -1,8 +1,11 @@
-var module = require('./index.js');
-var assert = require('chai').assert;
+import module from './index.js';
+import chai from 'chai';
 
 describe('Export test', function() {
   it('hello() should return Hello World', function() {
-    assert.equal(module.hello(), 'Hello World!');
+    chai.assert.equal('Hello World!', new module().hello());
+  });
+  it('hello2() works', function() {
+    chai.assert.equal('Hello to you too!', module.hello2());
   });
 });
